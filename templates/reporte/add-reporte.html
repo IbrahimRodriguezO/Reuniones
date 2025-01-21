@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %} Agregar reunión {% endblock %}
+
+{% block content %}
+    
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container">
+        <div class="grid-x grid-margin-x align-center">
+            <div class="cell medium-10 large-6" style="margin-top: 2em;">
+                <div class="card" style="width: 100%;">
+                    <div class="card-divider">
+                      <h4>Nueva reunión</h4>
+                    </div>
+                    <div class="card-section">
+                        <form class="grid-x grid-margin-x" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="cell large-6">
+                                <label>Día:
+                                {{ form.dia }}
+                                </label>
+                            </div>
+                            <div class="cell large-6">
+                                <label>Hora:
+                                {{ form.hora }}
+                                </label>
+                            </div>
+                            <div class="cell large-12">
+                                <label>Tema:
+                                {{ form.tema }}
+                                </label>
+                            </div>
+                            <div class="cell large-12">
+                                <label>Integrantes:
+                                {{ form.integrantes }}
+                                </label>
+                            </div>
+                            <div class="cell large-12">
+                                <label>Lugar:
+                                {{ form.lugar }}
+                                </label>
+                            </div>
+                            <div class="cell large-12" style="text-align: center;">
+                                <button type="submit" class="boton-sec">Agregar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

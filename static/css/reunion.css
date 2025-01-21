@@ -1,0 +1,126 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+input, select, textarea{
+    border-radius: 5px  !important;
+}
+
+header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: #611232; 
+    padding: 0px 20px;
+}
+
+.title, .navigation{
+    margin-top: 10px;
+}
+
+.header-title {
+    color: #fff;
+    font-size: 20px; 
+    font-weight: bold;
+}
+
+.navigation-items {
+    display: flex;
+    align-items: center; 
+    gap: 25px; 
+}
+
+.navigation-items li {
+    list-style: none;
+}
+
+.navigation-items li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px; 
+}
+
+.boton-sec {
+    background-color: #611232;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px; 
+    text-decoration: none; 
+    cursor: pointer;
+}
+
+.franja{
+    width: 100%;
+    height: 15px;
+    background-color: #a57e2c;
+}
+
+.grid-container h1{
+    text-align: center;
+}
+
+.grid-container{
+    margin-bottom: 20px;
+}
+
+table tr td a img{
+    width: 30px;
+}
+
+.buscador{
+    margin-left: 10px;
+}
+
+.form-img {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fieldset {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color: #f3f4f6; /* Fondo claro */
+    border: 1px solid #ccc;   /* Borde */
+    border-radius: 4px;
+    color: #333;              /* Color del texto */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.custom-file-upload:hover {
+    background-color: #e2e6ea; /* Fondo más oscuro al pasar el mouse */
+    color: #000;               /* Color del texto al pasar el mouse */
+}
+
+.file-name {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+

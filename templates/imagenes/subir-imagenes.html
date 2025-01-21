@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Subir imágenes
+{% endblock title %}
+    
+
+{% block content %}
+
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container">
+        <h1 style="margin-top: 15px;">Subir imágenes</h1>
+        <form method="post" enctype="multipart/form-data" class="grid-x grid-padding-x form-img">
+            {% csrf_token %}
+            <div class="cell small-12">
+                {{ formset.management_form }}
+                {% for form in formset %}
+                    <fieldset class="fieldset">
+                        <legend><b>Subir Imagen {{ forloop.counter }}</b></legend>
+                        <div class="grid-x grid-padding-x">
+                            <div class="cell small-12">
+                                {{ form.as_p }}
+                            </div>
+                        </div>
+                    </fieldset>
+                {% endfor %}
+            </div>
+            <div class="cell large-12" style="text-align: center;">
+                <button type="submit" class="boton-sec">Guardar Imágenes</button>
+            </div>
+        </form>
+        
+    </div>
+
+    
+
+{% endblock content %}
+    
