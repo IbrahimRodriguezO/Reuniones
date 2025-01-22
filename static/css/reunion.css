@@ -45,7 +45,8 @@ header {
     font-size: 16px; 
 }
 
-.boton-sec {
+.boton-sec,
+.boton-logout {
     background-color: #611232;
     color: #fff;
     padding: 10px;
@@ -53,6 +54,11 @@ header {
     border-radius: 5px; 
     text-decoration: none; 
     cursor: pointer;
+    transition: border 0.3 ease;
+}
+
+.boton-logout:hover{
+    border: 1px solid #fff;
 }
 
 .franja{
@@ -117,10 +123,49 @@ table tr td a img{
     color: #666;
 }
 
-.container{
+h1{
+    margin: 20px 0;
+}
+
+.container-btn{
     margin-top: 30px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+a{
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #fff;
+}
+
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.container-img img{
+    width: 48%;
+}
+
+.th-detalle{
+    width: 200px;
+    text-align: left;
+}
+
+.img-container{
+    text-align: right;
+    margin: 10px 0;
+}
+
+.img-opc{
+    width: 40px;
+}

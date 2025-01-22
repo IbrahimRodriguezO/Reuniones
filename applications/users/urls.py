@@ -10,13 +10,13 @@ urlpatterns = [
         name= "user-register"
     ),
     path(
-        "login/",
+        "",
         views.LoginUser.as_view(),
         name= "user-login"
     ),
     path(
         "logout/",
-        views.LogoutView.as_view(),
+        views.LogoutUser.as_view(),
         name= "user-logout"
     ),
 ]

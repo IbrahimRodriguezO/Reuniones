@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block title %}
     PDF
@@ -10,11 +10,69 @@
 
     {% include 'includes/header.html' %}
 
-    <h1>Reunión por: {{ reporte.tema }}</h1>
-    <div class="container">
-        <a class="boton-sec" href="{% url 'reporte_app:listar-reportes' reporte.id %}" target="_blank">Generar PDF</a>  
-        <a class="boton-sec" href="{% url 'reporte_app:add-reporte' %}">Regresar</a>
+    <div class="grid-container">
+        <h1>Todas las reuniones</h1>
+
+        <table class="unstriped">
+            <thead>
+              <tr>
+                <th>Día</th>
+                <th>Hora</th>
+                <th>Tema</th>
+                <th>Lugar</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                
+                {% for reporte in reportes %}
+                <tr>
+                    <td>{{ reporte.dia }}</td>
+                    <td>{{ reporte.hora }}</td>
+                    <td>{{ reporte.tema }}</td>
+                    <td>{{ reporte.lugar }}</td>
+                    <td>
+                        <a href="{% url 'reporte_app:detalle-reporte' reporte.id %} "><img src="{% static 'img/ver.png' %}" alt="ícono ver"></a>
+                        <a href="{% url 'reporte_app:listar-reportes' reporte.id %}"><img src="{% static 'img/pdf.png' %}" alt="ícono PDF" target="_blank"></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+
+        <!-- inicio de bloque de paginacion -->
+        <div class="cell">
+        {% if is_paginated %}
+            <nav aria-label="Pagination">
+                <ul class="pagination">
+
+                {% if page_obj.has_previous %}
+                <li class="pagination-previous"><a href="?page={{page_obj.previous_page_number}}">Atrás</a><span
+                    class="show-for-sr">page</span></li>
+                {% endif %}
+
+
+                {% for pagina in paginator.page_range %}
+
+                {% if pagina == page_obj.number  %} 
+                    <li class="current"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
+                {% else %}
+                <li><a href="?page={{pagina}}">{{ pagina }}</a></li>
+                {% endif %}
+                    
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="pagination-next"><a href="?page={{page_obj.next_page_number}}">Siguiente<span class="show-for-sr">page</span></a></li>
+                {% endif %}
+
+                </ul>
+            </nav>
+        {% endif %}
+        </div>
+            
     </div>
-    
+
 {% endblock content %}
     

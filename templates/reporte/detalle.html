@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Detalle {% endblock title %}
+
+
+{% block content %}
+    {% include 'includes/header.html' %}
+    <div class="grid-container">
+        <h1>Reunión por: {{ reporte.tema }}</h1>
+        <div class="cell-x img-container">
+            <a href="{% url 'reporte_app:listar-reportes' reporte.id %}"><img class="img-opc" src="{% static 'img/pdf.png' %}" alt="ícono PDF" target="_blank"></a>
+        </div>
+        <div class="cell-x">
+            <table>
+                <tr>
+                    <th class="th-detalle">Día</th>
+                    <td>{{ reporte.dia }}</td>
+                </tr>
+                <tr>
+                    <th class="th-detalle">Hora</th>
+                    <td>{{ reporte.hora }}</td>
+                </tr>
+                <tr>
+                    <th class="th-detalle">Tema</th>
+                    <td>{{ reporte.tema }}</td>
+                </tr>
+                <tr>
+                    <th class="th-detalle">Integrantes</th>
+                    <td>
+                
+                        {% for integrante in reporte.integrantes.split %}
+                            <p>{{ integrante }}</p>
+                        {% endfor %}
+
+                    </td>
+                </tr>
+                <tr>
+                    <th class="th-detalle">Lugar</th>
+                    <td>{{ reporte.lugar }}</td>
+                </tr>
+            </table>
+            
+        </div>
+        <div class="cell-x">
+            <h2>Evidencias de la reunión</h2>
+            <div class="container-img">
+                {% for imagen in imagenes %}
+                <img src="{{ imagen.image.url }}" alt="">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
+    
+
+

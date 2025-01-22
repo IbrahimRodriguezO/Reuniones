@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    PDF
+{% endblock title %}
+    
+
+{% block content %}
+
+    {% include 'includes/header.html' %}
+
+    <div class="grid-container">
+        <h1>Reunión por: {{ reporte.tema }}</h1>
+        <div class="grid-x grid-margin-x">
+            <div class="cell large-12" style="text-align: center; margin-bottom: 20px;">
+                <a class="boton-sec" href="{% url 'reporte_app:listar-reportes' reporte.id %}" target="_blank">Generar PDF</a>  
+            </div>
+            <div class="cell large-12" style="text-align: center; margin-bottom: 20px;">
+                <a class="boton-sec" href="{% url 'reporte_app:add-reporte' %}">Regresar</a>
+            </div>
+        </div>
+    </div>
+
+    
+    
+{% endblock content %}
+    

@@ -4,9 +4,16 @@
   </div>
   <div class="navigation">
     <ul class="navigation-items">
-      <li>
-        <a href="#" class="boton-sec">Cerrar sesión</a>
-      </li>
+      
+      {% if request.user.role == "admin" %}
+        <a href="{% url 'reporte_app:add-reporte' %}">Nueva reunión</a>
+        <a href="{% url 'reporte_app:lista-reportes' %}">Reuniones</a>
+      {% endif %}
+        
+      <form action="{% url 'users_app:user-logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="boton-logout">Cerrar sesión</button>
+      </form>
     </ul>
   </div>
 </header>
