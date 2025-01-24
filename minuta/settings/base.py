@@ -38,7 +38,9 @@ LOCAL_APPS = (
     'applications.imagenes',
 )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = (
+    'fontawesomefree',
+)
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 

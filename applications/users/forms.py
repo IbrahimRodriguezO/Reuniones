@@ -31,6 +31,8 @@ class UserRegisterForm(forms.ModelForm):
             "nombres",
             "apellidos",
             "role",
+            "is_staff",
+            "is_active",
         )
         
     def clean_password2(self):
@@ -72,3 +74,18 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("Los datos del usuario no son correctos")
 
         return super(LoginForm, self).clean()
+    
+
+class UpdateUser(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = (
+            "username",
+            "email",
+            "nombres",
+            "apellidos",
+            "role",
+            "is_staff",
+            "is_active",
+        )

@@ -8,6 +8,7 @@
       {% if request.user.role == "admin" %}
         <a href="{% url 'reporte_app:add-reporte' %}">Nueva reunión</a>
         <a href="{% url 'reporte_app:lista-reportes' %}">Reuniones</a>
+        <a href="{% url 'users_app:lista-user' %}">Usuarios</a>
       {% endif %}
         
       <form action="{% url 'users_app:user-logout' %}" method="post">
