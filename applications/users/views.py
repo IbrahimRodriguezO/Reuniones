@@ -52,7 +52,7 @@ class ListaUsers(LoginRequiredMixin, ListView):
     
     def get_context_data(self, **kwargs):
         context = super(ListaUsers, self).get_context_data(**kwargs)
-        context["usuarios"] = User.objects.all()
+        context["usuarios"] = User.objects.all().order_by("-id")
         return context
     
 

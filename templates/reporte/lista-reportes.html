@@ -20,7 +20,7 @@
                 <th>Hora</th>
                 <th>Tema</th>
                 <th>Lugar</th>
-                <th>Opciones</th>
+                <th class="th-opc">Opciones</th>
               </tr>
             </thead>
             <tbody>
@@ -31,9 +31,10 @@
                     <td>{{ reporte.hora }}</td>
                     <td>{{ reporte.tema }}</td>
                     <td>{{ reporte.lugar }}</td>
-                    <td>
-                        <a href="{% url 'reporte_app:detalle-reporte' reporte.id %} "><img src="{% static 'img/ver.png' %}" alt="ícono ver"></a>
-                        <a href="{% url 'reporte_app:listar-reportes' reporte.id %}"><img src="{% static 'img/pdf.png' %}" alt="ícono PDF" target="_blank"></a>
+                    <td class="form-opc">
+                        <a href="{% url 'reporte_app:detalle-reporte' reporte.id %}" class="edit" style="font-size: 20px;"><i class="fa-solid fa-circle-info"></i></a>
+                        <a href="{% url 'reporte_app:listar-reportes' reporte.id %}" class="delete" target="_blank" style="font-size: 20px;"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a href="#" class="edit" target="_blank" style="font-size: 20px;"><i class="fas fa-file-alt"></i></a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -48,7 +49,7 @@
                 <ul class="pagination">
 
                 {% if page_obj.has_previous %}
-                <li class="pagination-previous"><a href="?page={{page_obj.previous_page_number}}">Atrás</a><span
+                <li class="pagination-previous"><a href="?page={{page_obj.previous_page_number}}" class="opc-paginate">Atrás</a><span
                     class="show-for-sr">page</span></li>
                 {% endif %}
 
@@ -56,15 +57,15 @@
                 {% for pagina in paginator.page_range %}
 
                 {% if pagina == page_obj.number  %} 
-                    <li class="current"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
+                    <li class="current color"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
                 {% else %}
-                <li><a href="?page={{pagina}}">{{ pagina }}</a></li>
+                <li><a href="?page={{pagina}}" class="opc-paginate">{{ pagina }}</a></li>
                 {% endif %}
                     
                 {% endfor %}
 
                 {% if page_obj.has_next %}
-                    <li class="pagination-next"><a href="?page={{page_obj.next_page_number}}">Siguiente<span class="show-for-sr">page</span></a></li>
+                    <li class="pagination-next"><a href="?page={{page_obj.next_page_number}}" class="opc-paginate">Siguiente<span class="show-for-sr">page</span></a></li>
                 {% endif %}
 
                 </ul>

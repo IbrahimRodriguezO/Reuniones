@@ -42,21 +42,26 @@
                                     {{ form.email }}
                                 </label>
                             </div>
-                            <div class="cell medium-6">
+                            <div class="cell medium-12">
                                 <label>Rol:
                                     {{ form.role }}
                                 </label>
                             </div>
                             <div class="cell medium-3">
-                                <label>Admin:
-                                    {{ form.is_staff }}
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="is_staff" id="id_is_staff" {% if form.is_staff.value %}checked{% endif %}>
+                                    <span></span>
+                                    Admin
                                 </label>
                             </div>
                             <div class="cell medium-3">
-                                <label>Activo:
-                                {{ form.is_active }}
+                                <label class="custom-checkbox">
+                                    <input type="checkbox" name="is_active" id="id_is_active" {% if form.is_active.value %}checked{% endif %}>
+                                    <span></span>
+                                    Activo
                                 </label>
                             </div>
+                            
                             <div class="cell large-12" style="text-align: center;">
                                 <button type="submit" class="boton-sec">Actualizar</button>
                             </div>

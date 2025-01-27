@@ -19,7 +19,7 @@
                     <th>Username</th>
                     <th>Email</th>
                     <th>Rol</th>
-                    <th>Opciones</th>
+                    <th class="th-opc">Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -32,10 +32,10 @@
                         <td>{{ usuario.email }}</td>
                         <td>{{ usuario.role }}</td>
                         <td>
-                            <form action="{% url 'users_app:delete-user' usuario.id %}" method="post" class="card-favoritos-body-actions">
+                            <form action="{% url 'users_app:delete-user' usuario.id %}" method="post" class="card-favoritos-body-actions form-opc">
                                 {% csrf_token %}
-                                <p><a href="{% url 'users_app:update-user' usuario.id %}"><i class="fa-solid fa-pen-to-square"></i>E</a></p>
-                                <button type="submit"><i class="fa-solid fa-trash"></i>EL</button>
+                                <a class="edit" href="{% url 'users_app:update-user' usuario.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <button class="delete" type="submit"><i class="fa-solid fa-trash"></i></button>
                             </form>
                         </td>
                     </tr>
@@ -46,36 +46,36 @@
         </div>
     </div>
 
-    <!-- inicio de bloque de paginacion -->
-    <div class="cell">
-        {% if is_paginated %}
-            <nav aria-label="Pagination">
-                <ul class="pagination">
+   <!-- inicio de bloque de paginacion -->
+   <div class="cell">
+    {% if is_paginated %}
+        <nav aria-label="Pagination">
+            <ul class="pagination">
 
-                {% if page_obj.has_previous %}
-                <li class="pagination-previous"><a href="?page={{page_obj.previous_page_number}}">Atrás</a><span
-                    class="show-for-sr">page</span></li>
-                {% endif %}
+            {% if page_obj.has_previous %}
+            <li class="pagination-previous"><a href="?page={{page_obj.previous_page_number}}" class="opc-paginate">Atrás</a><span
+                class="show-for-sr">page</span></li>
+            {% endif %}
 
 
-                {% for pagina in paginator.page_range %}
+            {% for pagina in paginator.page_range %}
 
-                {% if pagina == page_obj.number  %} 
-                    <li class="current"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
-                {% else %}
-                <li><a href="?page={{pagina}}">{{ pagina }}</a></li>
-                {% endif %}
-                    
-                {% endfor %}
+            {% if pagina == page_obj.number  %} 
+                <li class="current color"><span class="show-for-sr">You're on page</span> {{ pagina }}</li>
+            {% else %}
+            <li><a href="?page={{pagina}}" class="opc-paginate">{{ pagina }}</a></li>
+            {% endif %}
+                
+            {% endfor %}
 
-                {% if page_obj.has_next %}
-                    <li class="pagination-next"><a href="?page={{page_obj.next_page_number}}">Siguiente<span class="show-for-sr">page</span></a></li>
-                {% endif %}
+            {% if page_obj.has_next %}
+                <li class="pagination-next"><a href="?page={{page_obj.next_page_number}}" class="opc-paginate">Siguiente<span class="show-for-sr">page</span></a></li>
+            {% endif %}
 
-                </ul>
-            </nav>
-        {% endif %}
-        </div>
+            </ul>
+        </nav>
+    {% endif %}
+    </div>
 {% endblock content %}
     
 

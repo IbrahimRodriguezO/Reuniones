@@ -31,14 +31,9 @@ class ListaReportesAdmin(LoginRequiredMixin, ListView):
     model = Reporte
     template_name = "reporte/lista-reportes.html"
     login_url = reverse_lazy("users_app:user-login")
-
-    
-    def get_context_data(self, **kwargs):
-        context = super(ListaReportesAdmin, self).get_context_data(**kwargs)
-
-        context["reportes"] = Reporte.objects.all()
-
-        return context
+    paginate_by = 10
+    context_object_name = "reportes"
+    ordering = ["-id"]
     
 
 class DetalleReporteAdmin(LoginRequiredMixin, DetailView):

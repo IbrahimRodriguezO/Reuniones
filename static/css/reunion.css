@@ -35,14 +35,15 @@ header {
     gap: 25px; 
 }
 
-.navigation-items li {
-    list-style: none;
-}
-
-.navigation-items li a {
+a {
     color: #fff;
     text-decoration: none;
     font-size: 16px; 
+}
+
+a:hover{
+    color: #fff;
+    cursor: pointer;
 }
 
 .boton-sec,
@@ -54,11 +55,6 @@ header {
     border-radius: 5px; 
     text-decoration: none; 
     cursor: pointer;
-    transition: border 0.3 ease;
-}
-
-.boton-logout:hover{
-    border: 1px solid #fff;
 }
 
 .franja{
@@ -77,6 +73,10 @@ header {
 
 table tr td a img{
     width: 30px;
+}
+
+.th-opc{
+    text-align: center !important;
 }
 
 .buscador{
@@ -136,12 +136,8 @@ h1{
 }
 
 a{
-    color: #fff;
     text-decoration: none;
-}
-
-a:hover{
-    color: #fff;
+    list-style: none;
 }
 
 .container-img{
@@ -156,11 +152,6 @@ a:hover{
     width: 48%;
 }
 
-.th-detalle{
-    width: 200px;
-    text-align: left;
-}
-
 .img-container{
     text-align: right;
     margin: 10px 0;
@@ -168,4 +159,78 @@ a:hover{
 
 .img-opc{
     width: 40px;
+}
+
+.form-opc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.edit{
+    color: #007bff;
+    cursor: pointer;
+}
+
+.edit:hover{
+    color: #007bff;
+}
+
+.delete{
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.delete:hover{
+    color: #dc3545;
+}
+
+.custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Estilo del checkbox invisible */
+    .custom-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+/* Diseño personalizado del checkbox */
+.custom-checkbox span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #611232;
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    background-color: white;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + span {
+    background-color: #611232;
+    border-color: #611232;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + span::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    top: 1px;
+    left: 6px;
+}
+
+.color{
+    background-color: #611232 !important;
+}
+
+.opc-paginate:hover{
+    background-color: #9c9c9c !important;
 }
